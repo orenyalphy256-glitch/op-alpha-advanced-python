@@ -28,8 +28,10 @@ def parse_contacts(html):
 
 # Main function to scrape and save contacts
 def scrape_and_save(url):
+    print(f"[RUNNING] Scraping {url}")
     html = fetch(url)
     items = parse_contacts(html)
     for name, phone in items:
         write_contact(name, phone) # Append to CSV
+        print(f"[DONE] Saved contacts to CSV: {name} - {phone}")
         time.sleep(1) # Be polite with a delay
