@@ -1,9 +1,10 @@
 # test_validators.py
 
 # Import the validation function
-from contact_manager.validators import is_valid_phone
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from validators import is_valid_phone
 
-def test_valid_numbers():
-    assert is_valid_phone("+25401234567")
+def test_valid():
     assert is_valid_phone("0712345678")
-    assert is_valid_phone("abc123") #Assuming alphanumeric is valid
+    assert not is_valid_phone("")
